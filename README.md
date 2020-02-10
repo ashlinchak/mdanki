@@ -2,7 +2,7 @@
 
 Converts Markdown file(s) to the Anki cards.
 
-<a href="https://www.buymeacoffee.com/ashlinchak" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 35px !important;width: 150px !important;" ></a>
+<a href="https://www.buymeacoffee.com/ashlinchak" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" width="217px" height="51px" ></a>
 
 - [MDAnki](#mdanki)
   - [Install](#install)
