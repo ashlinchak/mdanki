@@ -1,0 +1,25 @@
+{
+  "name": "markdown-to-anki",
+  "version": "0.0.1",
+  "description": "Convert markdown files to anki cards",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "anki-apkg-export": "^4.0.2",
+    "bluebird": "^3.7.2",
+    "glob": "^7.1.6",
+    "lodash": "^4.17.15",
+    "marked": "^0.8.0",
+    "prismjs": "^1.19.0",
+    "yargs": "^15.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1"
+  }
+}
