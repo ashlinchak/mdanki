@@ -1,12 +1,24 @@
 {
-  "name": "markdown-to-anki",
+  "name": "mdanki",
   "version": "0.0.1",
   "description": "Convert markdown files to anki cards",
+  "keywords": [
+    "anki",
+    "markdown"
+  ],
   "main": "src/index.js",
+  "bin": {
+    "mdanki": "src/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Oleksandr Shlinchak <ashlinchak@gmail.com>",
+  "homepage": "https://github.com/ashlinchak/mdanki",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashlinchak/mdanki.git"
+  },
   "license": "MIT",
   "dependencies": {
     "anki-apkg-export": "^4.0.2",
