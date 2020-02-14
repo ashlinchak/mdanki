@@ -77,7 +77,7 @@ Aaron Swartz on the syntax.
 If you want to have multiple lines on the card's front side - use `%` symbol for splitting front and back sides:
 
 ```
-### YAGNI
+## YAGNI
 
 Describe this acronym and why it's so important.
 
