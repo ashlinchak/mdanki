@@ -38,11 +38,19 @@ class Transformer {
 
   /**
    * Transform markdown files to .apkg file
-   * @returns {void}
+   * @returns {Promise<void>}
    */
   async transform() {
     this.validate();
+    await this.transformToDeck();
+  }
 
+  /**
+   * Transform markdown to deck
+   * @returns {Promise<void>}
+   * @private
+   */
+  async transformToDeck() {
     let deckName;
     const cards = [];
     const media = [];
@@ -80,7 +88,7 @@ class Transformer {
 
     this.deck = new Deck(deckName || this.defaultDeckName());
 
-    this.exportCards(cards, media);
+    await this.exportCards(cards, media);
   }
 
   /**
@@ -104,7 +112,7 @@ class Transformer {
     this.addCardsToDeck(cards);
     this.addMediaItemsToDeck(media);
 
-    this.deck.save(this.targetPath);
+    await this.deck.save(this.targetPath);
   }
 
   /**
