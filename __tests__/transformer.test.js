@@ -48,7 +48,7 @@ describe('Transformer', () => {
     describe('parse a directory', () => {
       beforeEach(() => {
         jest.spyOn(Transformer.prototype, 'addResourcesToDeck').mockImplementation();
-        jest.spyOn(Transformer.prototype, 'defaultDeckName').mockReturnValue('deck name');
+        jest.spyOn(Transformer.prototype, 'calculateDeckName').mockReturnValue('deck name');
         jest.spyOn(Deck.prototype, 'save').mockResolvedValue({
           save: jest.fn(),
         });
@@ -97,7 +97,7 @@ describe('Transformer', () => {
       });
 
       test('sets a deck name based on the title from the markdown', () => {
-        expect(transformer.deck.name).toEqual('Deck title');
+        expect(transformer.deck.name).toEqual('deck name');
       });
     });
 
@@ -126,7 +126,7 @@ describe('Transformer', () => {
     });
   });
 
-  describe('#defaultDeckName', () => {
+  describe('#calculateDeckName', () => {
     beforeEach(() => {
       jest.resetModules();
     });
@@ -139,8 +139,20 @@ describe('Transformer', () => {
       transformer = new Transformer(sourceFilePath, 'anki.apkg');
 
       expect(
-        transformer.defaultDeckName(),
+        transformer.calculateDeckName(),
       ).toEqual('deck name');
+    });
+
+    test('generates deck name from markdown title', () => {
+      jest.mock('yargs', () => ({
+        argv: { deck: null },
+      }));
+      Transformer = require('../src/transformer');
+      transformer = new Transformer(sourceFilePath, 'anki.apkg');
+
+      expect(
+        transformer.calculateDeckName('calculated deck name'),
+      ).toEqual('calculated deck name');
     });
 
     test('generates deck name from default configs', () => {
@@ -151,7 +163,7 @@ describe('Transformer', () => {
       transformer = new Transformer(sourceFilePath, 'anki.apkg');
 
       expect(
-        transformer.defaultDeckName(),
+        transformer.calculateDeckName(),
       ).toEqual('mdanki');
     });
   });
