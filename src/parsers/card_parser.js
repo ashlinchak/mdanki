@@ -42,14 +42,13 @@ class CardParser extends BaseParser {
     }
     const { front, back, tags } = this.parseCardLines(cardLines);
 
-    if (this.options.convertToHtml) {
-      const frontHtml = await this.linesToHtml(front);
-      const backHtml = await this.linesToHtml(back);
-
-      return new Card(frontHtml, backHtml, tags);
+    if (!this.options.convertToHtml) {
+      return new Card(front.join(), back.join(), tags);
     }
+    const frontHtml = await this.linesToHtml(front);
+    const backHtml = await this.linesToHtml(back);
 
-    return new Card(front, back, tags);
+    return new Card(frontHtml, backHtml, tags);
   }
 
   /**
@@ -112,8 +111,6 @@ class CardParser extends BaseParser {
       .map((str) => str.trim())
       .map((str) => {
         const parts = this.tagRe.exec(str);
-        if (!parts) { return null; }
-
         return parts[1];
       })
       .filter((str) => str);

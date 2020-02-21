@@ -83,6 +83,19 @@ class MdParser extends BaseParser {
   }
 
   /**
+   * Highlight a code with prism.js
+   * @param {string} code
+   * @param {string} lang
+   */
+  highlight(code, lang) {
+    const parsedLang = lang || configs.code.defaultLanguage;
+    if (Prism.languages[parsedLang]) {
+      return Prism.highlight(code, Prism.languages[parsedLang], parsedLang);
+    }
+    return code;
+  }
+
+  /**
    * Init marked with Prismjs
    * @returns {void}
    * @private
@@ -98,13 +111,7 @@ class MdParser extends BaseParser {
       smartLists : true,
       smartypants: false,
       mangle     : false,
-      highlight  : (code, lang) => {
-        const parsedLang = lang || configs.code.defaultLanguage;
-        if (Prism.languages[parsedLang]) {
-          return Prism.highlight(code, Prism.languages[parsedLang], parsedLang);
-        }
-        return code;
-      },
+      highlight  : this.highlight,
     });
   }
 

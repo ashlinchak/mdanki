@@ -16,6 +16,7 @@ Converts Markdown file(s) to the Anki cards.
   - [Images](#images)
   - [User settings](#user-settings)
   - [License](#license)
+  - [Changelog](#changelog)
 
 ## Install
 ```bash
@@ -77,7 +78,7 @@ Aaron Swartz on the syntax.
 If you want to have multiple lines on the card's front side - use `%` symbol for splitting front and back sides:
 
 ```
-### YAGNI
+## YAGNI
 
 Describe this acronym and why it's so important.
 
@@ -168,3 +169,7 @@ mdanki markdown.md aki.apkg --config path/to/config/file.js
 
 ## License
 MIT License, Copyright (c) 2020, Oleksandr Shlinchak.
+
+## Changelog
+[Changelog](./CHANGELOG.md)
+

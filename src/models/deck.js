@@ -56,7 +56,7 @@ class Deck {
    */
   async save(target) {
     this.addDataToAnkiExporter();
-    this.export(target);
+    await this.export(target);
   }
 
   /**

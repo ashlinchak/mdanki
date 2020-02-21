@@ -1,0 +1,10 @@
+{
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "no-underscore-dangle": "off",
+    "global-require": "off",
+    "import/order": "off"
+  }
+}
