@@ -16,6 +16,7 @@ Converts Markdown file(s) to the Anki cards.
   - [Images](#images)
   - [User settings](#user-settings)
   - [License](#license)
+  - [Changelog](#changelog)
 
 ## Install
 ```bash
@@ -168,3 +169,7 @@ mdanki markdown.md aki.apkg --config path/to/config/file.js
 
 ## License
 MIT License, Copyright (c) 2020, Oleksandr Shlinchak.
+
+## Changelog
+[Changelog](./CHANGELOG.md)
+
