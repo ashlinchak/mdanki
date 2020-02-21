@@ -86,19 +86,18 @@ class Transformer {
       process.exit(1);
     }
 
-    this.deck = new Deck(deckName || this.defaultDeckName());
+    this.deck = new Deck(this.calculateDeckName(deckName));
 
     await this.exportCards(cards, media);
   }
 
   /**
+   * @param {string} generatedName
    * @returns {string} Default deck name
    * @private
    */
-  defaultDeckName() {
-    if (argv.deck) { return argv.deck; }
-
-    return configs.deck.defaultName;
+  calculateDeckName(generatedName = null) {
+    return argv.deck || generatedName || configs.deck.defaultName;
   }
 
   /**
