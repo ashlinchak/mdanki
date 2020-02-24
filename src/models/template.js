@@ -1,5 +1,5 @@
 const {
-  question: deaultQuestion,
+  question: defaultQuestion,
   answer: defaultAnswer,
   css: defaultCss,
 } = require('../configs').template.formats;
@@ -18,7 +18,7 @@ class Template {
    * @param {string} css
    */
   constructor(questionFormat, answerFormat, css) {
-    this.questionFormat = questionFormat || deaultQuestion;
+    this.questionFormat = questionFormat || defaultQuestion;
     this.answerFormat   = answerFormat || defaultAnswer;
     this.css            = css || defaultCss;
   }
