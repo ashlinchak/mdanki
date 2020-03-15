@@ -15,6 +15,7 @@ Converts Markdown file(s) to the Anki cards.
   - [Supported languages](#supported-languages)
   - [Images](#images)
   - [User settings](#user-settings)
+  - [Memory limit](#memory-limit)
   - [License](#license)
   - [Changelog](#changelog)
 
@@ -150,7 +151,7 @@ MDAnki supports code highlighting for these languages:
 
 You can use links to image files inside markdown, MDAnki will parse them and add those images to the import collection. It's allowed to use two styles for writing images:
 
-1. Inline
+1. Inline:
 ![alt text](samples/resources/nodejs.png "Node.js")
 
 1. Reference:
@@ -166,6 +167,20 @@ Any configuration which is presented in [settings file](src/configs/settings.js)
 ```bash
 mdanki markdown.md aki.apkg --config path/to/config/file.js
 ```
+
+## Memory limit
+
+Converting a big Markdown file you can get a memory limit error like this:
+
+> Cannot enlarge memory arrays. Either (1) compile with  -s TOTAL_MEMORY=X  with X higher than the current value 16777216...
+
+For overcoming this error, replace `sql.js`:
+
+```bash
+cp node_modules/sql.js/js/sql-memory-growth.js node_modules/sql.js/js/sql.js
+```
+
+More info [here](https://github.com/sql-js/sql.js#versions-of-sqljs-included-in-the-distributed-artifacts).
 
 ## License
 MIT License, Copyright (c) 2020, Oleksandr Shlinchak.
