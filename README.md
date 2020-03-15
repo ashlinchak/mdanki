@@ -5,6 +5,7 @@ Converts Markdown file(s) to the Anki cards.
 <a href="https://www.buymeacoffee.com/ashlinchak" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" width="217px" height="51px" ></a>
 
 - [MDAnki](#mdanki)
+  - [Requirements](#requirements)
   - [Install](#install)
   - [Usage](#usage)
   - [Overriding default settings](#overriding-default-settings)
@@ -14,10 +15,15 @@ Converts Markdown file(s) to the Anki cards.
   - [Code and syntax highlighting](#code-and-syntax-highlighting)
   - [Supported languages](#supported-languages)
   - [Images](#images)
+  - [LaTeX](#latex)
   - [User settings](#user-settings)
   - [Memory limit](#memory-limit)
   - [License](#license)
   - [Changelog](#changelog)
+
+## Requirements
+
+Node.js v10.0+
 
 ## Install
 ```bash
@@ -158,6 +164,14 @@ You can use links to image files inside markdown, MDAnki will parse them and add
 ![alt text][ROR]
 
 [ROR]: samples/resources/ruby_on_rails.png "Logo Title Text 2"
+
+## LaTeX
+
+MDAnki and Anki can support LaTeX. Install LaTeX for your OS and use the `[latex]` attribute within Markdown files.
+
+```
+[latex]\\[e^x -1 = 3\\][/latex]
+```
 
 
 ## User settings
