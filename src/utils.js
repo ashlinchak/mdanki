@@ -55,9 +55,40 @@ const trimArray = (array) => trimArrayEnd(
   trimArrayStart(array),
 );
 
+/**
+ * Get extension from URL
+ * @param {[string]} url
+ * @returns {[string]}
+ */
+const getExtensionFromUrl = (url) => {
+  const extension = url
+    .split(/[#?]/)[0]
+    .split('.')
+    .pop()
+    .trim();
+
+  return `.${extension}`;
+};
+
+async function replaceAsync(str, regex, asyncFn) {
+  const tasks = [];
+
+  // fill replacers with fake call
+  str.replace(regex, (match, ...args) => {
+    const promise = asyncFn(match, ...args);
+    tasks.push(promise);
+  });
+
+  const data = await Promise.all(tasks);
+
+  return str.replace(regex, () => data.shift());
+}
+
 module.exports = {
   sanitizeString,
   trimArrayStart,
   trimArrayEnd,
   trimArray,
+  getExtensionFromUrl,
+  replaceAsync,
 };

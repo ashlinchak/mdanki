@@ -25,6 +25,7 @@
   "license": "MIT",
   "dependencies": {
     "anki-apkg-export": "^4.0.3",
+    "axios": "^0.20.0",
     "bluebird": "^3.7.2",
     "glob": "^7.1.6",
     "lodash": "^4.17.15",

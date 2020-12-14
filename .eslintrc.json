@@ -16,6 +16,8 @@
         "class-methods-use-this": "off",
         "no-console": "off",
         "key-spacing": ["error", { "align": "colon" }],
+        "no-await-in-loop": "off",
+        "no-restricted-syntax": "off",
         "no-multi-spaces": ["error", {
             "exceptions": {
                 "VariableDeclarator": true,
