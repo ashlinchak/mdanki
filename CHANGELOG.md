@@ -1,5 +1,7 @@
 # MDAnki Changelog
 
+#### v1.1.0 - 2020.12.14
+* Add remote media loading ([#20](https://github.com/ashlinchak/mdanki/pull/20))
 #### v1.0.2 - 2020.02.21
 * Prefer the explicit deck name over calculated ([#2](https://github.com/ashlinchak/mdanki/pull/2))
 
