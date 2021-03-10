@@ -104,17 +104,22 @@ Cards can have tags in their markdown sources. For adding tags to cart it should
 * only one line with tags per card
 * a tag should be written in the link format
 * tag (link text) should start from `#` symbol
+* tag should not contain empty string
+* tags under deck name will be default tags
 
 MDAnki uses `'^\\[#(.*)\\]'` pattern for searching tags. This pattern could be overwritten by specifying custom settings. The source file in the tag link is optional.
 
-The below example will generate a card with 3 tags: _algorithms_, _OOP_, and _binary_tree_.
+The below example will generate a card with 4 tags: _algorithms_, _OOP_, _binary_tree_, and _default_tag_.
 
 ```
+# deck name
+[#default_tag]()
+
 ## Binary tree
 
 In computer science, a binary tree is a tree data structure in which each node has at most two children, which are referred to as the left child and the right child.
 
-[#algorithms](./algorityms.md) [#OOP]() [#binary tree]()
+[#algorithms](./algorityms.md) [#OOP]() [#binary_tree]()
 ```
 
 ## Code and syntax highlighting

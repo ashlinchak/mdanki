@@ -44,7 +44,7 @@ class FileSerializer {
       .split(new RegExp(configs.card.separator, 'm'))
       .map((line) => line.trim());
 
-    const deckName = this.deckName(rawCards);
+    const {deckName, defaultTags} = await this.deckName(rawCards);
 
     // filter out deck title
     rawCards = rawCards.filter((str) => !str.startsWith(configs.deck.titleSeparator));
@@ -54,6 +54,7 @@ class FileSerializer {
       .filter((card) => card)
       // card should have front and back sides
       .filter((card) => card.front && card.back);
+    cards.forEach(card => card.tags = card.tags.concat(defaultTags))
 
     // get media from markdown file
     const media = await this.mediaFromCards(cards);
@@ -70,15 +71,22 @@ class FileSerializer {
    * @returns {string}
    * @private
    */
-  deckName(rawCards) {
-    const deckName = rawCards
-      .find((str) => str.match(new RegExp(configs.deck.titleSeparator)));
+  async deckName(rawCards) {
+    const titleRe = new RegExp(configs.deck.titleSeparator)
+    const deckCard = rawCards
+      .find((str) => str.match(titleRe));
 
-    if (!deckName) { return null; }
+    if (!deckCard) { return {deckName: null}; }
 
-    return deckName.replace(/(#\s|\n)/g, '');
+    var card = await CardParser.parse(deckCard);
+    const deckName = deckCard.split("\n").find((l) => l.match(titleRe)).replace(/(#\s|\n)/g, '');
+
+    return {
+      deckName,
+      defaultTags: card.tags
+    }
   }
-
+  
   /**
    * Search media in cards and add it to the media collection
    * @param {[Card]} cards

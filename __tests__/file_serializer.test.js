@@ -44,6 +44,19 @@ describe('FileSerializer', () => {
       expect(media[0].fileName).toEqual('8d777f385d3dfec8815d20f7496026dc.png');
     });
 
+    test('find first deckName', async () => {
+      markdown = `# Deck name\n[#tag2]()\n## Title\nbody\n[#tag]()`;
+      serializer = new FileSerializer(filePath);
+
+      const { deckName, cards } = await serializer.transform();
+
+      expect(deckName).toEqual('Deck name');
+      expect(cards.length).toEqual(1);
+      expect(cards[0].tags[0]).toEqual('tag');
+      expect(cards[0].tags[1]).toEqual('tag2');
+    });
+
+
     test('returns without a deck name if it\'s not specified in the markdown', async () => {
       markdown = `## Title\nbody\n![media](${mediaPath})`;
       serializer = new FileSerializer(filePath);
