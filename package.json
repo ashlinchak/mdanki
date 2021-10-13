@@ -1,6 +1,6 @@
 {
   "name": "mdanki",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Convert markdown files to anki cards",
   "keywords": [
     "anki",
@@ -27,17 +27,17 @@
     "anki-apkg-export": "^4.0.3",
     "axios": "^0.23.0",
     "bluebird": "^3.7.2",
-    "glob": "^7.1.6",
+    "glob": "^7.2.0",
     "lodash": "^4.17.21",
     "marked": "^0.8.0",
     "prismjs": "^1.25.0",
-    "yargs": "^15.1.0"
+    "yargs": "^17.2.1"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.2",
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.20.1",
-    "jest": "^25.1.0"
+    "@types/jest": "^27.0.2",
+    "eslint": "^8.0.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "jest": "^27.2.5"
   }
 }
