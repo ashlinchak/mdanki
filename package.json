@@ -25,12 +25,12 @@
   "license": "MIT",
   "dependencies": {
     "anki-apkg-export": "^4.0.3",
-    "axios": "^0.20.0",
+    "axios": "^0.23.0",
     "bluebird": "^3.7.2",
     "glob": "^7.1.6",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "marked": "^0.8.0",
-    "prismjs": "^1.19.0",
+    "prismjs": "^1.25.0",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
