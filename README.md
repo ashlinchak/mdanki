@@ -58,6 +58,22 @@ To override [default settings](./src/configs/settings.js) use `--config` option:
 mdanki library.md anki.apkg --config faworite-settings.json
 ```
 
+The JSON file, for example, would look like the following if you were to change
+the mdanki card template to the default that Anki has:
+
+```json
+{
+"template": {
+    "formats": {
+        "question": "{{Front}}",
+        "answer"  : "{{FrontSide}}\n\n<hr id=\"answer\">\n\n{{Back}}",
+         "css"     : ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}"
+               }
+            }
+}
+```
+
+
 ## Supported files
 
 MDAnki supports `.md` and `.markdown` files.
