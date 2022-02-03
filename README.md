@@ -14,7 +14,6 @@ Converts Markdown file(s) to the Anki cards.
   - [Supported languages](#supported-languages)
   - [Images](#images)
   - [LaTeX](#latex)
-  - [User settings](#user-settings)
   - [Memory limit](#memory-limit)
   - [License](#license)
   - [Changelog](#changelog)
@@ -57,6 +56,22 @@ To override [default settings](./src/configs/settings.js) use `--config` option:
 ```bash
 mdanki library.md anki.apkg --config faworite-settings.json
 ```
+
+The JSON file, for example, would look like the following if you were to change
+the mdanki card template to the default that Anki has:
+
+```json
+{
+"template": {
+    "formats": {
+        "question": "{{Front}}",
+        "answer"  : "{{FrontSide}}\n\n<hr id=\"answer\">\n\n{{Back}}",
+         "css"     : ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}"
+               }
+            }
+}
+```
+
 
 ## Supported files
 
@@ -169,15 +184,6 @@ MDAnki and Anki can support LaTeX. Install LaTeX for your OS and use the `[latex
 
 ```
 [latex]\\[e^x -1 = 3\\][/latex]
-```
-
-
-## User settings
-
-Any configuration which is presented in [settings file](src/configs/settings.js) could be overwritten by specifying an external configuration file:
-
-```bash
-mdanki markdown.md aki.apkg --config path/to/config/file.js
 ```
 
 ## Memory limit
