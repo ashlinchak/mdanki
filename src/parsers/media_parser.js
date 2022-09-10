@@ -49,7 +49,7 @@ class MediaParser extends BaseParser {
     } else {
       const filePath = path.resolve(path.dirname(this.source), p1);
       fileExt = path.extname(filePath);
-      data = fs.readFileSync(filePath);
+      data = fs.readFileSync(decodeURIComponent(filePath));
     }
 
     const media = new Media(data);
