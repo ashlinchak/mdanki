@@ -24,7 +24,9 @@ Node.js v10.0+
 
 ## Install
 ```bash
-npm install -g mdanki
+git clone https://github.com/titusse3/mdanki.git
+cd mdanki
+npm i -g --legacy-peer-deps
 ```
 
 ## Usage
@@ -57,8 +59,8 @@ To override [default settings](./src/configs/settings.js) use `--config` option:
 mdanki library.md anki.apkg --config faworite-settings.json
 ```
 
-The JSON file, for example, would look like the following if you were to change
-the mdanki card template to the default that Anki has:
+The JSON file, for example, would look like the following if you were to 
+change the mdanki card template to the default that Anki has:
 
 ```json
 {
@@ -112,6 +114,13 @@ necessary.
 
 When parsing only one markdown file, the title of the deck could be generated based on the top-level headline (`# `).
 
+For writing math in a card you can use the _LaTeX_ _Markdown_ based syntax  
+such that :
+ - `$ block $` for inline math block (from the _Tex_ language)
+ - `$$ block $$` for centered math block (from the _Tex_ language)
+ - `\( block \)` for inline math block (from the _LaTeX_ language)
+ - `\[ block \]` for centered math block (from the _LaTeX_ language)
+
 ## Tags
 
 Cards can have tags in their markdown sources. For adding tags to cart it should follow some rules:
@@ -163,7 +172,8 @@ echo "Code block without language name"
 
 MDAnki supports code highlighting for these languages:
 
-> actionscript, applescript, aspnet, bash, basic, batch, c, coffeescript, cpp, csharp, d, dart, erlang, fsharp, go, graphql, groovy, handlebars, java, json, latex, less, livescript, lua, makefile, markdown, markup-templating, nginx, objectivec, pascal, perl, php, powershell, python, r, ruby, rust, sass, scheme, smalltalk, smarty, sql, stylus, swift, typescript, vim, yaml.
+> actionscript, applescript, aspnet, bash, basic, batch, c, coffeescript, cpp, csharp, d, dart, erlang, fsharp, go, graphql, groovy, handlebars, java, json, latex, less, livescript, lua, makefile, markdown, markup-templating, nginx, objectivec, pascal, perl, php, powershell, python, r, ruby, rust, sass, scheme, smalltalk, smarty, sql, stylus, swift, typescript, vim, yaml, 
+scala, haskell.
 
 
 ## Images
@@ -200,9 +210,12 @@ cp node_modules/sql.js/js/sql-memory-growth.js node_modules/sql.js/js/sql.js
 
 More info [here](https://github.com/sql-js/sql.js#versions-of-sqljs-included-in-the-distributed-artifacts).
 
-## License
-MIT License, Copyright (c) 2020, Oleksandr Shlinchak.
+## License Transition Notice
+This project was originally licensed under the MIT License.
+- MIT License, Copyright (c) 2020, Oleksandr Shlinchak.
 
-## Changelog
-[Changelog](./CHANGELOG.md)
+In this fork, the project is now licensed under the GNU General Public License, version 3 (GPLv3).
 
+- GPLv3 License, Copyright (c) 2024, toutse.
+
+For details, please see the [LICENSE](LICENSE) file.

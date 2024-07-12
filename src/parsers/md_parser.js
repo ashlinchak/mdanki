@@ -52,7 +52,7 @@ require('prismjs/components/prism-swift');
 require('prismjs/components/prism-typescript');
 require('prismjs/components/prism-vim');
 require('prismjs/components/prism-yaml.min');
-
+require('prismjs/components/prism-haskell');
 
 // aliases
 Prism.languages['c#'] = Prism.languages.csharp;
@@ -62,6 +62,7 @@ Prism.languages.md = Prism.languages.markdown;
 Prism.languages.py = Prism.languages.python;
 Prism.languages.yml = Prism.languages.yaml;
 Prism.languages.rb = Prism.languages.ruby;
+Prism.languages.hs = Prism.languages.haskell;
 
 /**
  * @typedef {import('marked').Renderer} MarkedRenderer
@@ -88,7 +89,7 @@ class MdParser extends BaseParser {
    * @param {string} lang
    */
   highlight(code, lang) {
-    const parsedLang = lang || configs.code.defaultLanguage;
+    let parsedLang = lang || configs.code.defaultLanguage;
     if (Prism.languages[parsedLang]) {
       return Prism.highlight(code, Prism.languages[parsedLang], parsedLang);
     }

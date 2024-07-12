@@ -1,16 +1,16 @@
-/* PrismJS 1.19.0
-https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+actionscript+applescript+aspnet+bash+basic+batch+c+csharp+cpp+coffeescript+d+dart+erlang+fsharp+go+graphql+groovy+handlebars+java+json+latex+less+livescript+lua+makefile+markdown+markup-templating+nginx+objectivec+pascal+perl+php+powershell+python+r+ruby+rust+sass+scheme+smalltalk+smarty+sql+stylus+swift+typescript+vim+yaml */
+/* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+actionscript+applescript+aspnet+bash+basic+batch+c+csharp+cpp+coffeescript+d+dart+erlang+fsharp+go+graphql+groovy+handlebars+haskell+java+json+latex+less+livescript+lua+makefile+markdown+markup-templating+nginx+objectivec+ocaml+pascal+perl+php+powershell+python+r+ruby+rust+sass+scala+scheme+smalltalk+smarty+sql+stylus+swift+typescript+vim+yaml */
 /**
- * prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
  */
-
+ 
 code[class*="language-"],
 pre[class*="language-"] {
-	color: black;
+	color: #f8f8f2;
 	background: none;
-	text-shadow: 0 1px white;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: 1em;
 	text-align: left;
@@ -30,35 +30,17 @@ pre[class*="language-"] {
 	hyphens: none;
 }
 
-pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
-	text-shadow: none;
-	background: #b3d4fc;
-}
-
-pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
-code[class*="language-"]::selection, code[class*="language-"] ::selection {
-	text-shadow: none;
-	background: #b3d4fc;
-}
-
-@media print {
-	code[class*="language-"],
-	pre[class*="language-"] {
-		text-shadow: none;
-	}
-}
-
 /* Code blocks */
 pre[class*="language-"] {
 	padding: 1em;
 	margin: .5em 0;
 	overflow: auto;
+	border-radius: 0.3em;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #f5f2f0;
+	background: #272822;
 }
 
 /* Inline code */
@@ -72,11 +54,11 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: slategray;
+	color: #8292a2;
 }
 
 .token.punctuation {
-	color: #999;
+	color: #f8f8f2;
 }
 
 .token.namespace {
@@ -85,12 +67,15 @@ pre[class*="language-"] {
 
 .token.property,
 .token.tag,
-.token.boolean,
-.token.number,
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: #905;
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
 }
 
 .token.selector,
@@ -99,33 +84,32 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-	color: #690;
+	color: #a6e22e;
 }
 
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
-.style .token.string {
-	color: #9a6e3a;
-	background: hsla(0, 0%, 100%, .5);
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
 }
 
 .token.atrule,
 .token.attr-value,
-.token.keyword {
-	color: #07a;
-}
-
 .token.function,
 .token.class-name {
-	color: #DD4A68;
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
 }
 
 .token.regex,
-.token.important,
-.token.variable {
-	color: #e90;
+.token.important {
+	color: #fd971f;
 }
 
 .token.important,
@@ -140,3 +124,4 @@ pre[class*="language-"] {
 	cursor: help;
 }
 
+/* 79870870 */

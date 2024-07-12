@@ -24,6 +24,9 @@ recsum(5)
 15
 ```
 
+Quick reminder :
+$fibo(n) = fibo(n - 1) + fibo(n - 2)$, for $n \geq 2$.
+
 [#recursion](./recursion.md) [#algorithms](./algorithms.md)
 
 ## Tail recursion
