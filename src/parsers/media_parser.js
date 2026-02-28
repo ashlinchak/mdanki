@@ -25,29 +25,34 @@ class MediaParser extends BaseParser {
     super(options);
     this.source = source;
     this.mediaList = [];
-    this.srcRe = new RegExp('src="([^"]*?)"', 'g');
+    this.srcRe = new RegExp('src="([^"]*?)"|\\[sound:([^\\]]*?)\\]', 'g');
   }
 
   /**
    * Prepare media from card's side
    * @param {string} side
    */
-  parse(side) {
+  async parse(side) {
     return replaceAsync(side, this.srcRe, this.replacer.bind(this));
   }
 
-  async replacer(match, p1) {
+  async replacer(match, p1, p2) {
     let data;
     let fileExt;
+    const src = p1 || p2;
+    const srcPlaceInMatch = match.indexOf(src);
+    const p1EndPlaceInMatch = srcPlaceInMatch + src.length;
+    const prefix = match.slice(0, srcPlaceInMatch);
+    const suffix = match.slice(p1EndPlaceInMatch);
 
-    if (p1.startsWith('http')) {
-      const resp = await axios.get(p1, {
+    if (src.startsWith('http')) {
+      const resp = await axios.get(src, {
         responseType: 'arraybuffer',
       });
       data = resp.data;
-      fileExt = getExtensionFromUrl(p1);
+      fileExt = getExtensionFromUrl(src);
     } else {
-      const filePath = path.resolve(path.dirname(this.source), p1);
+      const filePath = path.resolve(path.dirname(this.source), src);
       fileExt = path.extname(filePath);
       data = fs.readFileSync(filePath);
     }
@@ -57,7 +62,7 @@ class MediaParser extends BaseParser {
 
     this.addMedia(media);
 
-    return `src="${media.fileName}"`;
+    return `${prefix}${media.fileName}${suffix}`;
   }
 
   addMedia(media) {
